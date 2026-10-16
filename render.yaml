@@ -1,0 +1,13 @@
+# Render Blueprint — static site ไม่ต้องมี build step
+# ใช้ได้ทั้งแบบกด "New > Blueprint" แล้วชี้ repo และแบบใช้ API
+services:
+  - type: web
+    name: english-test-system-sessions
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    autoDeployTrigger: commit
+    headers:
+      - path: /*
+        name: X-Robots-Tag
+        value: noindex
